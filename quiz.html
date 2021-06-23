@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quizzz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #bcb4d0;
+        }
+
+        .calender {
+            position: relative;
+            width: 200px;
+            /* height: 80px; */
+            background: rgb(44, 187, 187);
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: inset 5px 5px 12px rgb(0, 0, 0, .16),
+                5px 5px 12px rgb(0, 0, 0, .16);
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .calender #monthName {
+            position: relative;
+            padding: 5px 10px;
+            background: aqua;
+            color: #ab2132;
+        }
+
+        .calender #dayNumber {
+            margin-top: 20px;
+            line-height: auto;
+            font-size: 20px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .calender #year {
+            margin-top: 20px;
+            /* margin-bottom: auto; */
+            font-size: 20px;
+            font-weight: 700;
+            background: rgb(203, 134, 224);
+            color: black;
+        }
+
+        .calender #dayName {
+            background: rgb(111, 206, 123);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calender">
+        <p id="monthName"></p>
+        <p id="dayName"></p>
+        <p id="dayNumber"></p>
+        <p id="year"></p>
+    </div>
+    <script>
+        const lang = navigator.language;
+        let date = new Date();
+        let dayNumber = date.getDate();
+        let month = date.getMonth();
+        let dayName = date.toLocaleString(lang, { weekday: 'long' });
+        let monthName = date.toLocaleString(lang, { month: 'long' });
+        let year = date.getFullYear();
+        document.getElementById("monthName").innerHTML = monthName;
+        document.getElementById("dayName").innerHTML = dayName;
+        document.getElementById("dayNumber").innerHTML = dayNumber;
+        document.getElementById("year").innerHTML = year;
+        document.getElementById("month").innerHTML = month;
+    </script>
+</body>
+
+</html>
